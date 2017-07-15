@@ -18,5 +18,5 @@ On first run the Wordpress source will be setup locally and WP's config.php will
 - `docker-compose up`
 - WordPress: [http://localhost:8080](http://localhost:8080)
 - phpMyAdmin: [http://localhost:8181](http://localhost:8181)
- - login: root
- - password: password
+    - login: root
+    - password: password
