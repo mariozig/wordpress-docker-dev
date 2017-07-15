@@ -1,0 +1,27 @@
+version: "2"
+services:
+  wordpress_db:
+    image: mariadb
+    ports:
+      - "8081:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+  wordpress:
+    image: wordpress
+    volumes:
+      - ./:/var/www/html
+    ports:
+      - "8080:80"
+    links:
+      - wordpress_db:mysql
+    environment:
+      WORDPRESS_DB_PASSWORD: password
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    ports:
+      - 8181:80
+    links:
+      - wordpress_db:db
+    environment:
+      MYSQL_USERNAME: root
+      MYSQL_ROOT_PASSWORD: password
