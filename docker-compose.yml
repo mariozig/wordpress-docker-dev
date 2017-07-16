@@ -1,12 +1,14 @@
 version: "2"
 services:
   wordpress_db:
+    container_name: wordpress_db
     image: mariadb
     ports:
       - "8081:3306"
     environment:
       MYSQL_ROOT_PASSWORD: password
   wordpress:
+    container_name: wordpress
     image: wordpress
     volumes:
       - ./:/var/www/html
@@ -17,6 +19,7 @@ services:
     environment:
       WORDPRESS_DB_PASSWORD: password
   phpmyadmin:
+    container_name: phpmyadmin
     image: phpmyadmin/phpmyadmin:latest
     ports:
       - 8181:80
@@ -25,3 +28,4 @@ services:
     environment:
       MYSQL_USERNAME: root
       MYSQL_ROOT_PASSWORD: password
+      
